@@ -12,7 +12,7 @@
   "size": 2345,
   "method": "{{method}}",
   "agent": "GET /live/tv001_hls_pull_6000K_live.m3u8 HTTP/1.1",
-  "hostname": "ccengine-01",
+  "hostname": "{{ccengine-01:ccengine-02:ccengine-03}}",
   "zone": "dc1",
   "gid": "{{uid}}",
   "@timestamp": "{{timestamp}}"

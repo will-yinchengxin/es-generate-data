@@ -109,7 +109,7 @@ func generateRandomValue(key, placeholder string, start, end time.Time) interfac
 		return t
 	case "{{path}}":
 		t := utils.RandomFromSlice(randomPaths)
-		resInfo.UpdateTagStats(key+"-{{path}}", t, TagStatsMap)
+		resInfo.UpdateTagStats(key, t, TagStatsMap)
 		return t
 	case "{{httpStatus}}":
 		t := utils.RandomFromSlice(statusCodes)
@@ -130,6 +130,19 @@ func generateRandomValue(key, placeholder string, start, end time.Time) interfac
 	case "{{timestamp}}":
 		return timStr
 	default:
+		if strings.Contains(placeholder, "{{") && strings.Contains(placeholder, ":") {
+			t := getOwnDefaultVal(placeholder)
+			resInfo.UpdateTagStats(key, t, TagStatsMap)
+			return t
+		}
 		return "-"
 	}
+}
+
+func getOwnDefaultVal(s string) string {
+	parts := strings.Split(strings.Trim(strings.Trim(s, "{"), "}"), ":")
+	if len(parts) > 0 {
+		return utils.RandomFromSlice(parts)
+	}
+	return s
 }
