@@ -1,0 +1,19 @@
+{
+  "localtime": "03/Dec/2024:08:00:06 +0800",
+  "host": "{{domain}}",
+  "remote": "{{host}}",
+  "client_ip": "{{host}}",
+  "request_time": 0.016,
+  "upstream_addr": "172.16.27.83:8088",
+  "upstream_response_time": 0.016,
+  "upstream_cache_status": "{{httpStatus}}",
+  "upstream_status": "{{httpStatus}}",
+  "status": "{{httpStatus}}",
+  "size": 2345,
+  "method": "{{method}}",
+  "agent": "GET /live/tv001_hls_pull_6000K_live.m3u8 HTTP/1.1",
+  "hostname": "ccengine-01",
+  "zone": "dc1",
+  "gid": "{{uid}}",
+  "@timestamp": "{{timestamp}}"
+}
